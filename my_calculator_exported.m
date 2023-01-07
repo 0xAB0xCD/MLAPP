@@ -2,18 +2,18 @@ classdef my_calculator_exported < matlab.apps.AppBase
 
     % Properties that correspond to app components
     properties (Access = public)
-        UIFigure            matlab.ui.Figure
-        GridLayout          matlab.ui.container.GridLayout
-        SubtructButton      matlab.ui.control.Button
-        abEditField         matlab.ui.control.NumericEditField
-        abEditFieldLabel_2  matlab.ui.control.Label
-        aplusbEditField     matlab.ui.control.NumericEditField
-        abEditFieldLabel    matlab.ui.control.Label
-        bEditField          matlab.ui.control.NumericEditField
-        bEditFieldLabel     matlab.ui.control.Label
-        aEditField          matlab.ui.control.NumericEditField
-        aEditFieldLabel     matlab.ui.control.Label
-        AddButton           matlab.ui.control.Button
+        UIFigure          matlab.ui.Figure
+        GridLayout        matlab.ui.container.GridLayout
+        SubtructButton    matlab.ui.control.Button
+        baEditField       matlab.ui.control.NumericEditField
+        baEditFieldLabel  matlab.ui.control.Label
+        aplusbEditField   matlab.ui.control.NumericEditField
+        abEditFieldLabel  matlab.ui.control.Label
+        bEditField        matlab.ui.control.NumericEditField
+        bEditFieldLabel   matlab.ui.control.Label
+        aEditField        matlab.ui.control.NumericEditField
+        aEditFieldLabel   matlab.ui.control.Label
+        AddButton         matlab.ui.control.Button
     end
 
     % Callbacks that handle component events
@@ -31,7 +31,7 @@ classdef my_calculator_exported < matlab.apps.AppBase
 
         % Button pushed function: SubtructButton
         function SubtructButtonPushed(app, event)
-            app.aplusbEditField.Value  = app.aEditField.Value - app.bEditField.Value; 
+            app.aplusbEditField.Value  = app.bEditField.Value - app.aEditField.Value; 
         end
     end
 
@@ -94,17 +94,17 @@ classdef my_calculator_exported < matlab.apps.AppBase
             app.aplusbEditField.Layout.Row = 5;
             app.aplusbEditField.Layout.Column = 3;
 
-            % Create abEditFieldLabel_2
-            app.abEditFieldLabel_2 = uilabel(app.GridLayout);
-            app.abEditFieldLabel_2.HorizontalAlignment = 'right';
-            app.abEditFieldLabel_2.Layout.Row = 6;
-            app.abEditFieldLabel_2.Layout.Column = 2;
-            app.abEditFieldLabel_2.Text = 'a - b =';
+            % Create baEditFieldLabel
+            app.baEditFieldLabel = uilabel(app.GridLayout);
+            app.baEditFieldLabel.HorizontalAlignment = 'right';
+            app.baEditFieldLabel.Layout.Row = 6;
+            app.baEditFieldLabel.Layout.Column = 2;
+            app.baEditFieldLabel.Text = 'b - a =';
 
-            % Create abEditField
-            app.abEditField = uieditfield(app.GridLayout, 'numeric');
-            app.abEditField.Layout.Row = 6;
-            app.abEditField.Layout.Column = 3;
+            % Create baEditField
+            app.baEditField = uieditfield(app.GridLayout, 'numeric');
+            app.baEditField.Layout.Row = 6;
+            app.baEditField.Layout.Column = 3;
 
             % Create SubtructButton
             app.SubtructButton = uibutton(app.GridLayout, 'push');
